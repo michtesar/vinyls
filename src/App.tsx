@@ -11,6 +11,10 @@ function App() {
   const [filteredVinyls, setFilteredVinyls] = useState<Vinyl[]>([]);
 
   useEffect(() => {
+    document.title = "Vinyls";
+  }, []);
+
+  useEffect(() => {
     setFilteredVinyls(
       vinyls.filter((vinyl) =>
         vinyl.album.toLowerCase().includes(searchText.toLowerCase())
