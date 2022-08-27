@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -39,18 +40,23 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
+      <div className="AppHeader">
         <h1>Vinyls</h1>
         <p>Your go to vinyl tracking application</p>
-        <p>{searchText}</p>
         <SearchBox setSearchText={setSearchText} />
-        <div className="Cards" style={{ display: "inline-flex" }}>
-          {filteredVinyls.map((vinyl) => (
-            <VinylCard {...vinyl} key={vinyl.id} />
-          ))}
-        </div>
-        <SettingsButton />
       </div>
+      <div className="AppBody">
+        <Grid container spacing={2} columns={2}>
+          <div className="Cards">
+            {filteredVinyls.map((vinyl) => (
+              <Grid item xs={8} key={vinyl.id}>
+                <VinylCard {...vinyl} key={vinyl.id} />
+              </Grid>
+            ))}
+          </div>
+        </Grid>
+      </div>
+      <SettingsButton />
     </ThemeProvider>
   );
 }
