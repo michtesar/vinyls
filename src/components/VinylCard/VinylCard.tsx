@@ -28,6 +28,7 @@ export const VinylCard = ({
         height={dimension}
         image={cover}
         alt={artist + "- " + album + "(" + year + ")"}
+        draggable={false}
       />
       <CardContent>
         <Rating name="read-only" value={rating} readOnly />
