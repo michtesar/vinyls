@@ -31,7 +31,7 @@ export const VinylCard = ({
         draggable={false}
       />
       <CardContent>
-        <Rating name="read-only" value={rating} readOnly />
+        <Rating name="read-only" value={rating} size={"small"} readOnly />
       </CardContent>
     </Card>
   );
