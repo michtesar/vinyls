@@ -46,7 +46,7 @@ function App() {
         <SearchBox setSearchText={setSearchText} />
         <div className="Cards" style={{ display: "inline-flex" }}>
           {filteredVinyls.map((vinyl) => (
-            <VinylCard {...vinyl} />
+            <VinylCard {...vinyl} key={vinyl.id} />
           ))}
         </div>
         <SettingsButton />
