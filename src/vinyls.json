@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "artist": "Led Zeppelin",
+    "album": "IV",
+    "year": 1971,
+    "cover": "https://www.techhouse.cz/fotky38484/img/2021/11phpeRsD1G.jfif",
+    "rating": 4
+  },
+  {
+    "id": 2,
+    "artist": "Pink Floyd",
+    "album": "The Dark Side Of The Moon",
+    "year": 1973,
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "artist": "The Beatles",
+    "album": "Abbey Road",
+    "year": 1969,
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "rating": 3
+  },
+  {
+    "id": 4,
+    "artist": "The Doors",
+    "album": "The Doors",
+    "year": 1967,
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/98/TheDoorsTheDoorsalbumcover.jpg",
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "artist": "AC/DC",
+    "album": "Back In Black",
+    "year": 1980,
+    "cover": "https://www.joe.gr/files/2021/08/ACDC-Back-In-Black-Album-Cover.jpg",
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "artist": "Fleetwood Mac",
+    "album": "Rumours",
+    "year": 1977,
+    "cover": "https://muzikercdn.com/uploads/products/5205/520596/thumb_d_gallery_base_fc938afb.jpg",
+    "rating": 2
+  },
+  {
+    "id": 7,
+    "artist": "The Eagles",
+    "album": "Hotel California",
+    "year": 1976,
+    "cover": "https://pure-music.co.uk/wp-content/uploads/2019/04/Hotel-California-Album-Cover.png",
+    "rating": 3
+  },
+  {
+    "id": 8,
+    "artist": "Elton John",
+    "album": "Goodbye Yellow Brick Road",
+    "year": 1973,
+    "cover": "https://www.musicrecords.cz/upload/catalogue/image/original//big/f13953105571297373550.jpg",
+    "rating": 5
+  },
+  {
+    "id": 9,
+    "artist": "Boston",
+    "album": "Boston",
+    "year": 1976,
+    "cover": "https://cdn.theatlantic.com/thumbor/D7DfCcEN2OzcDiBMQi-7Q_tKs-4=/420x0:1500x1080/1080x1080/media/img/mt/2015/03/Boston/original.jpg",
+    "rating": 4
+  },
+  {
+    "id": 10,
+    "artist": "Cream",
+    "album": "Disraeli Gears",
+    "year": 1976,
+    "cover": "https://www.udiscovermusic.com/wp-content/uploads/2017/06/Cream-Disraeli-Gears-album-cover-web-optimised-820.jpg",
+    "rating": 5
+  }
+]
