@@ -46,10 +46,10 @@ function App() {
         <SearchBox setSearchText={setSearchText} />
       </div>
       <div className="AppBody">
-        <Grid container spacing={2} columns={2}>
+        <Grid container spacing={2}>
           <div className="Cards">
             {filteredVinyls.map((vinyl) => (
-              <Grid item xs={8} key={vinyl.id}>
+              <Grid key={vinyl.id}>
                 <VinylCard {...vinyl} key={vinyl.id} />
               </Grid>
             ))}
