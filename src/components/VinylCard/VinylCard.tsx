@@ -14,7 +14,14 @@ export const VinylCard = ({
   const dimension: number = 200;
 
   return (
-    <Card sx={{ width: dimension }} className="Card">
+    <Card
+      sx={{
+        width: dimension,
+        ":hover": { boxShadow: "1px 2px 9px grey" },
+      }}
+      className="Card"
+      draggable={true}
+    >
       <CardHeader key={id} title={album} subheader={artist} />
       <CardMedia
         component={"img"}
