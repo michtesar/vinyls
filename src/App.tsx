@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -40,22 +40,24 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="AppHeader">
-        <h1>Vinyls</h1>
-        <p>Your go to vinyl tracking application</p>
-        <SearchBox setSearchText={setSearchText} />
-      </div>
-      <div className="AppBody">
-        <Grid container spacing={2}>
-          <div className="Cards">
-            {filteredVinyls.map((vinyl) => (
-              <Grid key={vinyl.id}>
-                <VinylCard {...vinyl} key={vinyl.id} />
-              </Grid>
-            ))}
-          </div>
-        </Grid>
-      </div>
+      <Container maxWidth={false}>
+        <div className="AppHeader">
+          <h1>Vinyls</h1>
+          <p>Your go to vinyl tracking application</p>
+          <SearchBox setSearchText={setSearchText} />
+        </div>
+        <div className="AppBody">
+          <Grid container spacing={2}>
+            <div className="Cards">
+              {filteredVinyls.map((vinyl) => (
+                <Grid key={vinyl.id}>
+                  <VinylCard {...vinyl} key={vinyl.id} />
+                </Grid>
+              ))}
+            </div>
+          </Grid>
+        </div>
+      </Container>
       <SettingsButton />
     </ThemeProvider>
   );
