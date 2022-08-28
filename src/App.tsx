@@ -26,10 +26,6 @@ function App() {
   );
 
   useEffect(() => {
-    document.title = "Vinyls";
-  }, []);
-
-  useEffect(() => {
     setFilteredVinyls(
       vinyls.filter((vinyl) =>
         vinyl.album.toLowerCase().includes(searchText.toLowerCase())
