@@ -3,7 +3,22 @@
 }
 
 .Cards {
-  text-align: center;
   display: flex;
   flex-wrap: wrap;
+}
+
+.Card img {
+  border-radius: 5px;
+}
+
+.Card .Details {
+  text-align: left;
+}
+
+.Card .Details .Title {
+  font-size: medium;
+}
+
+.Card .Details .Subtitle {
+  font-size: smaller;
 }
