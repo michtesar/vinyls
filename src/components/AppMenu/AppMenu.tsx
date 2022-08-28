@@ -1,4 +1,5 @@
 import AlbumIcon from "@mui/icons-material/Album";
+import SearchIcon from "@mui/icons-material/Search";
 import AppBar from "@mui/material/AppBar";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -36,6 +37,12 @@ export const AppMenu = (props: any) => {
     setAnchorElUser(null);
   };
 
+  const handleSearchButton = () => {
+    // props.setSearchTextEnabled(false);
+    console.log(props.setSearchTextEnabled);
+    // props.setSearchTextEnabled(!props.searchTextEnabled);
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -69,7 +76,13 @@ export const AppMenu = (props: any) => {
               </Button>
             ))}
           </Box>
-
+          <Button
+            style={{ marginRight: 10, color: "white" }}
+            onClick={handleSearchButton}
+          >
+            <SearchIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            Search
+          </Button>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

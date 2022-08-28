@@ -13,6 +13,7 @@ import vinyls from "./vinyls.json";
 
 function App() {
   const [searchText, setSearchText] = useState("");
+  const [searchTextEnabled, setSearchTextEnabled] = useState(false);
   const [filteredVinyls, setFilteredVinyls] = useState<Vinyl[]>([]);
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
@@ -36,11 +37,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppMenu setSearchText />
+      <AppMenu setSearchText searchTextEnabled setSearchTextEnabled />
       <CssBaseline />
       <Container maxWidth={false}>
         <div className="AppHeader">
-          <SearchBox setSearchText={setSearchText} />
+          {searchTextEnabled && <SearchBox setSearchText={setSearchText} />}
         </div>
         <div className="AppBody">
           <Grid container>
