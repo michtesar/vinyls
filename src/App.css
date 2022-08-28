@@ -1,10 +1,15 @@
 .AppHeader {
   text-align: center;
+  margin: auto;
+  width: 95%;
 }
 
 .Cards {
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
+  margin: auto;
+  width: 95%;
 }
 
 .Card img {
