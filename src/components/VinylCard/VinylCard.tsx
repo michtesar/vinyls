@@ -11,7 +11,7 @@ export const VinylCard = ({
   id,
   rating,
 }: Vinyl) => {
-  const dimension: number = 200;
+  const dimension: number = 195;
 
   return (
     <Card
