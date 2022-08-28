@@ -13,28 +13,11 @@ export const VinylCard = ({
   const dimension: number = 150;
 
   return (
-    //   <Card
-    //     sx={{
-    //       width: dimension,
-    //       ":hover": { boxShadow: "1px 2px 9px grey" },
-    //     }}
-    //     className="Card"
-    //     draggable={true}
-    //   >
-    //     <CardHeader key={id} title={album} subheader={artist} />
-    //     <CardMedia
-    //       component={"img"}
-    //       height={dimension}
-    //       image={cover}
-    //       alt={artist + "- " + album + "(" + year + ")"}
-    //       draggable={false}
-    //     />
-    //     {/* <CardContent>
-    //       <Rating name="read-only" value={rating} size={"small"} readOnly />
-    //     </CardContent> */}
-    //   </Card>
-    // );
-    <div className="Card">
+    <div
+      className="Card"
+      onClick={() => console.log(album)}
+      style={{ padding: 10 }}
+    >
       <img
         alt={artist + " - " + album + "(" + year + ")"}
         src={cover}
