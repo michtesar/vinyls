@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
+import { AppMenu } from "./components/AppMenu/AppMenu";
 import { SettingsButton } from "./components/MenuButton/MenuButton";
 import { SearchBox } from "./components/SearchBox/SearchBox";
 import { VinylCard } from "./components/VinylCard/VinylCard";
@@ -35,11 +36,10 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <AppMenu setSearchText />
       <CssBaseline />
       <Container maxWidth={false}>
         <div className="AppHeader">
-          <h1>Vinyls</h1>
-          <p>Your go to vinyl tracking application</p>
           <SearchBox setSearchText={setSearchText} />
         </div>
         <div className="AppBody">
