@@ -6,9 +6,10 @@
 
 .Cards {
   display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  width: 95%;
+  margin: 0 auto;
+  width: inherit;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 10fr));
 }
 
 .Card img {
