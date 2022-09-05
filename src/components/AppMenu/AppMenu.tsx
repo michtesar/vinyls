@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import {SearchOutlined} from '@material-ui/icons';
+import signInWithGoogle from "../../App"
 
 const pages = ["All", "Favorite", "Recent", "Top"];
 const settings = ["Account", "Login"];
@@ -34,14 +35,19 @@ export const AppMenu = (props: any) => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
+    const handleCloseUserMenu = (event: any) => {
         setAnchorElUser(null);
     };
 
     const onChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-        console.log(event.target.value)
         props.setSearchText(event.target.value);
     };
+
+    function handleMenuLogin() {
+        console.log("Signing with Google has been clicked")
+        props.signInWithGoogle()
+        console.log("Done")
+    }
 
     return (
         <AppBar position="static">
@@ -92,7 +98,7 @@ export const AppMenu = (props: any) => {
                     <Box sx={{flexGrow: 0}}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
+                                <Avatar alt="Sign in" src="/static/images/avatar/2.jpg"/>
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -111,11 +117,9 @@ export const AppMenu = (props: any) => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            <MenuItem key={"menu-login"} onClick={handleMenuLogin}>
+                                <Typography textAlign="center">Login</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                 </Toolbar>
