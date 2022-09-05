@@ -6,14 +6,16 @@ import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { AppMenu } from "./components/AppMenu/AppMenu";
 import { SettingsButton } from "./components/MenuButton/MenuButton";
-import { SearchBox } from "./components/SearchBox/SearchBox";
 import { VinylCard } from "./components/VinylCard/VinylCard";
 import { Vinyl } from "./components/VinylTypes/Vinyl";
 import vinyls from "./vinyls.json";
+import {initializeApp} from "firebase/app"
+import {firebaseConfig} from "./config/config"
+
+initializeApp(firebaseConfig)
 
 function App() {
   const [searchText, setSearchText] = useState("");
-  const [searchTextEnabled, setSearchTextEnabled] = useState(false);
   const [filteredVinyls, setFilteredVinyls] = useState<Vinyl[]>([]);
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
@@ -37,12 +39,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppMenu setSearchText searchTextEnabled setSearchTextEnabled />
+      <AppMenu setSearchText={setSearchText} />
       <CssBaseline />
       <Container maxWidth={false}>
-        <div className="AppHeader">
-          {searchTextEnabled && <SearchBox setSearchText={setSearchText} />}
-        </div>
         <div className="AppBody">
           <Grid container>
             <div className="Cards">
