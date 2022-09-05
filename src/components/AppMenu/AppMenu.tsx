@@ -14,7 +14,7 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import {SearchOutlined} from '@material-ui/icons';
 
-const pages = ["Rock", "Pop", "Jazz", "Alternative", "Metal", "Folk", "Classical", "Others"];
+const pages = ["All", "Favorite", "Recent", "Top"];
 const settings = ["Account", "Login"];
 
 export const AppMenu = (props: any) => {
