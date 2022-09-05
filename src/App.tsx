@@ -18,16 +18,16 @@ import 'firebase/compat/firestore';
 
 firebase.initializeApp(firebaseConfig)
 
-export const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
+export const auth = firebase.auth()
+const provider = new firebase.auth.GoogleAuthProvider()
+provider.setCustomParameters({prompt: 'select_account'})
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () => auth.signInWithPopup(provider)
 
 function App() {
-    const [searchText, setSearchText] = useState("");
-    const [filteredVinyls, setFilteredVinyls] = useState<Vinyl[]>([]);
-    const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+    const [searchText, setSearchText] = useState("")
+    const [filteredVinyls, setFilteredVinyls] = useState<Vinyl[]>([])
+    const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
 
     const theme = useMemo(
         () =>
@@ -37,7 +37,7 @@ function App() {
                 },
             }),
         [prefersDarkMode]
-    );
+    )
 
     useEffect(() => {
         setFilteredVinyls(
@@ -45,11 +45,10 @@ function App() {
                 vinyl.album.toLowerCase().includes(searchText.toLowerCase())
             )
         );
-    }, [searchText]);
-
+    }, [searchText])
     return (
         <ThemeProvider theme={theme}>
-            <AppMenu setSearchText={setSearchText} signInWithGoogle={signInWithGoogle}/>
+            <AppMenu setSearchText={setSearchText} signInWithGoogle={signInWithGoogle} auth={auth} />
             <CssBaseline/>
             <Container maxWidth={false}>
                 <div className="AppBody">
@@ -66,7 +65,7 @@ function App() {
             </Container>
             <SettingsButton/>
         </ThemeProvider>
-    );
+    )
 }
 
-export default App;
+export default App

@@ -13,10 +13,12 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import {SearchOutlined} from '@material-ui/icons';
-import signInWithGoogle from "../../App"
+import {auth} from "../../App";
+import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+
 
 const pages = ["All", "Favorite", "Recent", "Top"];
-const settings = ["Account", "Login"];
 
 export const AppMenu = (props: any) => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -43,10 +45,20 @@ export const AppMenu = (props: any) => {
         props.setSearchText(event.target.value);
     };
 
-    function handleMenuLogin() {
-        console.log("Signing with Google has been clicked")
+    function handleUserSignOut() {
+        firebase.auth().signOut()
+            .then(() => {
+                props.setLogged(false)
+            }).catch(() => console.error("Cannot logout user"))
+    }
+
+    function handleUserSignIn() {
         props.signInWithGoogle()
-        console.log("Done")
+        props.setLogged(true)
+    }
+
+    function unpack(s: string | undefined | null) {
+        return s ? s : "Unknown"
     }
 
     return (
@@ -98,7 +110,10 @@ export const AppMenu = (props: any) => {
                     <Box sx={{flexGrow: 0}}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                <Avatar alt="Sign in" src="/static/images/avatar/2.jpg"/>
+                                <Avatar
+                                    alt={unpack(auth.currentUser?.displayName)}
+                                    src={unpack(auth.currentUser?.photoURL)}
+                                />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -117,9 +132,16 @@ export const AppMenu = (props: any) => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            <MenuItem key={"menu-login"} onClick={handleMenuLogin}>
-                                <Typography textAlign="center">Login</Typography>
-                            </MenuItem>
+                            {!props.logged &&
+                                <MenuItem key={"menu-login"} onClick={handleUserSignIn}>
+                                    <Typography textAlign="center">Login</Typography>
+                                </MenuItem>
+                            }
+                            {props.logged &&
+                                <MenuItem key={"menu-logout"} onClick={handleUserSignOut}>
+                                    <Typography textAlign="center">Logout</Typography>
+                                </MenuItem>
+                            }
                         </Menu>
                     </Box>
                 </Toolbar>
