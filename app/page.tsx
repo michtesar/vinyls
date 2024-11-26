@@ -12,11 +12,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 sm:items-start">
         <h1 className="text-6xl font-bold">Wanted</h1>
         {wanted ? (
-          <div className="grid grid-rows-2 gap-8">
+          <div className="grid">
             {wanted.map((vinyl) => (
               <VinylCard vinyl={vinyl} key={vinyl.id} />
             ))}
