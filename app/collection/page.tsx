@@ -1,18 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { fetchWanted, Vinyl } from '@/app/api';
+import { fetchCollection, Vinyl } from '@/app/api';
 import { VinylCard } from '@/app/components/vinyl-card';
-import { userName } from '@/app/config';
 import { LoadingSpinner } from '@/app/components/loading-spinner';
 
 export default function Home() {
   const [collection, setCollection] = useState<Vinyl[] | null>(null);
 
   useEffect(() => {
-    fetchWanted(
-      `https://api.discogs.com/users/${userName}/collection/folders/0/releases`,
-    ).then(setCollection);
+    fetchCollection().then(setCollection);
   }, []);
 
   return (
