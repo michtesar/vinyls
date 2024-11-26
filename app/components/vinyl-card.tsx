@@ -4,7 +4,7 @@ import React from 'react';
 
 export const VinylCard = ({ vinyl }: { vinyl: Vinyl }) => {
   return (
-    <div className="w-2/3 flex flex-col items-center rounded-lg bg-red-500">
+    <div className="w-2/3 flex flex-col items-center rounded-lg">
       <Image
         src={vinyl.coverUrl}
         alt={vinyl.title}
