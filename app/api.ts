@@ -1,6 +1,7 @@
 'use server';
 
 import axios from 'axios';
+import { userName } from '@/app/config';
 
 export interface Vinyl {
   id: string;
@@ -19,10 +20,7 @@ export interface Artist {
 
 const token = process.env.DISCOGS_TOKEN;
 
-export const fetchWanted = async (
-  url: string,
-  perPage: number = 10,
-): Promise<Vinyl[]> => {
+export const fetchWanted = async (perPage: number = 10): Promise<Vinyl[]> => {
   let page = 1;
   let allWants: Vinyl[] = [];
   let keepFetching = true;
@@ -30,8 +28,9 @@ export const fetchWanted = async (
   try {
     while (keepFetching) {
       const response = await axios.get(
-        `${url}?token=${token}&page=${page}&per_page=${perPage}`,
+        `https://api.discogs.com/users/${userName}/wants?token=${token}&page=${page}&per_page=${perPage}`,
       );
+      console.log('RESPONSE', response.data);
 
       const wants = response.data.wants.map(
         (item: {
