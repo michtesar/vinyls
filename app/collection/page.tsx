@@ -60,11 +60,12 @@ export default function Home() {
             }}
             onKeyDown={(e) => {
               if (e.key === 'Escape') {
+                filterCollection('');
                 setSearch('');
-                filterCollection(search);
               }
             }}
             value={search}
+            autoFocus
           />
         </div>
         {collection ? (
