@@ -17,10 +17,12 @@ export interface Artist {
   resource_url: string;
 }
 
-const userName = 'michtesar';
 const token = process.env.DISCOGS_TOKEN;
 
-export const fetchWanted = async (perPage: number = 10): Promise<Vinyl[]> => {
+export const fetchWanted = async (
+  url: string,
+  perPage: number = 10,
+): Promise<Vinyl[]> => {
   let page = 1;
   let allWants: Vinyl[] = [];
   let keepFetching = true;
@@ -28,7 +30,7 @@ export const fetchWanted = async (perPage: number = 10): Promise<Vinyl[]> => {
   try {
     while (keepFetching) {
       const response = await axios.get(
-        `https://api.discogs.com/users/${userName}/wants?token=${token}&page=${page}&per_page=${perPage}`,
+        `${url}?token=${token}&page=${page}&per_page=${perPage}`,
       );
 
       const wants = response.data.wants.map(
