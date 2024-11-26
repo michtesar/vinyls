@@ -10,9 +10,9 @@ export default function Home() {
   const [collection, setCollection] = useState<Vinyl[] | null>(null);
 
   useEffect(() => {
-    fetchWanted(`https://api.discogs.com/users/${userName}/wants`).then(
-      setCollection,
-    );
+    fetchWanted(
+      `https://api.discogs.com/users/${userName}/collection/folders/0/releases`,
+    ).then(setCollection);
   }, []);
 
   return (
