@@ -23,7 +23,7 @@ const token = process.env.DISCOGS_TOKEN;
 export const fetchCollection = async (
   perPage: number = 10,
 ): Promise<Vinyl[]> => {
-  let page = 0;
+  let page = 1;
   let allCollection: Vinyl[] = [];
   let keepFetching = true;
 
