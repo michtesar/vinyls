@@ -3,16 +3,13 @@
 import React, { useEffect, useState } from 'react';
 import { fetchWanted, Vinyl } from '@/app/api';
 import { VinylCard } from '@/app/components/vinyl-card';
-import { userName } from '@/app/config';
 import { LoadingSpinner } from '@/app/components/loading-spinner';
 
 export default function Home() {
   const [wanted, setWanted] = useState<Vinyl[] | null>(null);
 
   useEffect(() => {
-    fetchWanted(`https://api.discogs.com/users/${userName}/wants`).then(
-      setWanted,
-    );
+    fetchWanted().then(setWanted);
   }, []);
 
   return (
