@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-start">
-        <h1 className="text-6xl font-bold">Collection</h1>
+        <h1 className="text-6xl font-bold my-5">Collection</h1>
         {collection ? (
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 2xl:grid-cols-12">
             {collection.map((vinyl) => (
