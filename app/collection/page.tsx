@@ -18,21 +18,15 @@ export default function Home() {
     setFilteredCollection(collection || []);
   }, [collection]);
 
+  useEffect(() => {
+    filterCollection(search);
+  }, [search]);
+
   function filterCollection(search: string) {
     if (search) {
       setFilteredCollection(
-        collection?.filter(
-          (vinyl) => vinyl.title.toLowerCase().includes(search.toLowerCase()),
-          collection?.filter(
-            (vinyl) =>
-              vinyl.title.toLowerCase().includes(search.toLowerCase()) ||
-              vinyl.artists
-                .map((artist) => artist.name)
-                .join(', ')
-                .split('(')[0]
-                .toLowerCase()
-                .includes(search.toLowerCase()),
-          ) || [],
+        collection?.filter((vinyl) =>
+          vinyl.title.toLowerCase().includes(search.toLowerCase()),
         ) || [],
       );
     } else {
@@ -56,11 +50,9 @@ export default function Home() {
             }`}
             onChange={(e) => {
               setSearch(e.target.value);
-              filterCollection(search);
             }}
             onKeyDown={(e) => {
               if (e.key === 'Escape') {
-                filterCollection('');
                 setSearch('');
               }
             }}
