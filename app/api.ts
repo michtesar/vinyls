@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { userName } from '@/app/config';
+import { Release } from '@/app/types/release';
 
 export interface Vinyl {
   id: string;
@@ -111,3 +112,15 @@ export const fetchWanted = async (perPage: number = 10): Promise<Vinyl[]> => {
     throw error;
   }
 };
+
+export async function fetchRelease(id: number): Promise<Release | null> {
+  try {
+    const response = await axios.get(
+      `https://api.discogs.com/releases/${id}?token=${token}`,
+    );
+    return response.data as Release;
+  } catch (error) {
+    console.log(`Error while fetching release: ${id}: ${error}`);
+    return null;
+  }
+}
