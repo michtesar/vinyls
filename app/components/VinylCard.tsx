@@ -1,10 +1,18 @@
 import { Vinyl } from '@/app/api';
 import Image from 'next/image';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 export const VinylCard = ({ vinyl }: { vinyl: Vinyl }) => {
+  const router = useRouter();
+
   return (
-    <div className="w-2/3 flex flex-col items-center rounded-lg">
+    <div
+      className="w-2/3 flex flex-col items-center rounded-lg"
+      onClick={() => {
+        router.push(`/vinyl/${vinyl.id}`);
+      }}
+    >
       <Image
         src={vinyl.coverUrl}
         alt={vinyl.title}
