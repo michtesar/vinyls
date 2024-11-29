@@ -6,6 +6,7 @@ import { VinylCard } from '@/app/components/vinyl-card';
 import { LoadingSpinner } from '@/app/components/loading-spinner';
 import { FaGift } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
+import { SearchBar } from '@/app/components/SearchBar';
 
 export default function Home() {
   const [collection, setCollection] = useState<Vinyl[] | null>(null);
@@ -42,26 +43,7 @@ export default function Home() {
       <main className="flex flex-col items-start">
         <div className="flex justify-between items-center w-full">
           <h1 className="text-6xl font-bold my-2">Collection</h1>
-          <input
-            type="text"
-            placeholder="Search..."
-            className={`p-2 border rounded-md w-1/4 ${
-              window.matchMedia &&
-              window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'bg-gray-800 text-white border-gray-700'
-                : 'bg-white text-black border-gray-300'
-            }`}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') {
-                setSearch('');
-              }
-            }}
-            value={search}
-            autoFocus
-          />
+          <SearchBar search={search} setSearch={setSearch} />
         </div>
         <div
           className="flex flex-row w-auto space-x-3.5 justify-end mb-3 p-2 rounded-md bg-red-500 hover:bg-red-600 cursor-pointer"
