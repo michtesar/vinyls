@@ -1,5 +1,5 @@
 import { Vinyl } from '@/app/api';
-import { VinylCard } from '@/app/components/vinyl-card';
+import { VinylCard } from '@/app/components/VinylCard';
 import React from 'react';
 
 interface CollectionProps {

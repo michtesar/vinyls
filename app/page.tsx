@@ -5,7 +5,7 @@ import { SearchBar } from '@/app/components/SearchBar';
 import { NavigationLink } from '@/app/components/NavigationLink';
 import { FaGift } from 'react-icons/fa';
 import { Collection } from '@/app/components/Collection';
-import { LoadingSpinner } from '@/app/components/loading-spinner';
+import { Loader } from '@/app/components/Loader';
 import { useVinylCollection } from '@/app/hooks/useVinylCollection';
 import { useFilteredCollection } from '@/app/hooks/useFilteredCollection';
 
@@ -25,7 +25,7 @@ export default function Home() {
         {vinylCollection ? (
           <Collection vinyls={filteredCollection} />
         ) : (
-          <LoadingSpinner />
+          <Loader />
         )}
       </main>
     </div>

@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchWanted, Vinyl } from '@/app/api';
-import { VinylCard } from '@/app/components/vinyl-card';
-import { LoadingSpinner } from '@/app/components/loading-spinner';
+import { VinylCard } from '@/app/components/VinylCard';
+import { Loader } from '@/app/components/Loader';
 
 export default function Home() {
   const [wanted, setWanted] = useState<Vinyl[] | null>(null);
@@ -25,7 +25,7 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <LoadingSpinner />
+          <Loader />
         )}
       </main>
     </div>
