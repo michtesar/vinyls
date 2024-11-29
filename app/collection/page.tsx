@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchCollection, Vinyl } from '@/app/api';
-import { VinylCard } from '@/app/components/vinyl-card';
-import { LoadingSpinner } from '@/app/components/loading-spinner';
 import { SearchBar } from '@/app/components/SearchBar';
 import { NavigationLink } from '@/app/components/NavigationLink';
 import { FaGift } from 'react-icons/fa';
+import { Collection } from '@/app/components/Collection';
+import { LoadingSpinner } from '@/app/components/loading-spinner';
 
 export default function Home() {
   const [collection, setCollection] = useState<Vinyl[] | null>(null);
@@ -46,13 +46,7 @@ export default function Home() {
         </div>
         <NavigationLink label="Wanted" to="/wanted" icon={<FaGift />} />
         {collection ? (
-          <div className="grid grid-cols-3 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 2xl:grid-cols-12">
-            {filteredCollection.map((vinyl) => (
-              <div key={vinyl.id} className="flex flex-col items-center mt-2">
-                <VinylCard vinyl={vinyl} />
-              </div>
-            ))}
-          </div>
+          <Collection vinyls={filteredCollection} />
         ) : (
           <LoadingSpinner />
         )}
