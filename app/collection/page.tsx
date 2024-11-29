@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchCollection, Vinyl } from '@/app/api';
 import { VinylCard } from '@/app/components/vinyl-card';
 import { LoadingSpinner } from '@/app/components/loading-spinner';
+import { FaGift } from 'react-icons/fa6';
 
 export default function Home() {
   const [collection, setCollection] = useState<Vinyl[] | null>(null);
@@ -38,7 +39,7 @@ export default function Home() {
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col items-start">
         <div className="flex justify-between items-center w-full">
-          <h1 className="text-6xl font-bold my-5">Collection</h1>
+          <h1 className="text-6xl font-bold my-2">Collection</h1>
           <input
             type="text"
             placeholder="Search..."
@@ -59,6 +60,10 @@ export default function Home() {
             value={search}
             autoFocus
           />
+        </div>
+        <div className="flex flex-row w-auto space-x-3.5 justify-end mb-3 p-2 rounded-md bg-red-500 hover:bg-red-600 cursor-pointer">
+          <FaGift />
+          <p className="text-white text-xs font-semibold">Wanted</p>
         </div>
         {collection ? (
           <div className="grid grid-cols-3 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 2xl:grid-cols-12">
