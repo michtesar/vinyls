@@ -5,11 +5,13 @@ import { fetchCollection, Vinyl } from '@/app/api';
 import { VinylCard } from '@/app/components/vinyl-card';
 import { LoadingSpinner } from '@/app/components/loading-spinner';
 import { FaGift } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [collection, setCollection] = useState<Vinyl[] | null>(null);
   const [filteredCollection, setFilteredCollection] = useState<Vinyl[]>([]);
   const [search, setSearch] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     fetchCollection().then(setCollection);
@@ -61,7 +63,12 @@ export default function Home() {
             autoFocus
           />
         </div>
-        <div className="flex flex-row w-auto space-x-3.5 justify-end mb-3 p-2 rounded-md bg-red-500 hover:bg-red-600 cursor-pointer">
+        <div
+          className="flex flex-row w-auto space-x-3.5 justify-end mb-3 p-2 rounded-md bg-red-500 hover:bg-red-600 cursor-pointer"
+          onClick={() => {
+            router.push('/wanted');
+          }}
+        >
           <FaGift />
           <p className="text-white text-xs font-semibold">Wanted</p>
         </div>
