@@ -8,7 +8,7 @@ export const VinylCard = ({ vinyl }: { vinyl: Vinyl }) => {
 
   return (
     <div
-      className="w-2/3 flex flex-col items-center rounded-lg"
+      className="w-2/3 flex flex-col items-center rounded-lg hover: cursor-pointer"
       onClick={() => {
         router.push(`/vinyl/${vinyl.id}`);
       }}
