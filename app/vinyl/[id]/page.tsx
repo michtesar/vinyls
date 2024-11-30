@@ -16,7 +16,7 @@ const VinylPage = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Vinyl Details</h1>
       {release ? (
-        <>
+        <div className="flex flex-col items-center">
           <p className="text-lg">Title: {release.title}</p>
           <p className="text-lg">
             Artist: {release.artists[0].name.split('(')[0]}
@@ -28,7 +28,7 @@ const VinylPage = () => {
             width={512}
             height={512}
           />
-        </>
+        </div>
       ) : (
         <p>Loading...</p>
       )}
